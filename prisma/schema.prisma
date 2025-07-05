@@ -42,22 +42,34 @@ model User {
 model Space {
   id          String        @id @default(cuid())
   userId      String?
+<<<<<<< HEAD
   spaceName   String
   title       String
   description String
   image       String?
+=======
+  title       String
+  description String?
+>>>>>>> 0d0f5291b3f78378fdff1103382425c197029645
   isActive    Boolean       @default(true)
   createdAt   DateTime      @default(now())
   updatedAt   DateTime      @updatedAt
   testimonial Testimonial[]
   user        User?         @relation(fields: [userId], references: [id])
+<<<<<<< HEAD
 
   @@unique([spaceName, userId])
+=======
+>>>>>>> 0d0f5291b3f78378fdff1103382425c197029645
 }
 
 model Testimonial {
   id         String   @id @default(cuid())
+<<<<<<< HEAD
   spaceId    String?
+=======
+  spaceId    String
+>>>>>>> 0d0f5291b3f78378fdff1103382425c197029645
   name       String
   email      String?
   content    String
@@ -66,7 +78,11 @@ model Testimonial {
   isApproved Boolean  @default(false)
   createdAt  DateTime @default(now())
   updatedAt  DateTime @updatedAt
+<<<<<<< HEAD
   space      Space?   @relation(fields: [spaceId], references: [id])
+=======
+  space      Space    @relation(fields: [spaceId], references: [id])
+>>>>>>> 0d0f5291b3f78378fdff1103382425c197029645
 }
 
 model Session {
