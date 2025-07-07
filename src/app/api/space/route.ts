@@ -32,6 +32,12 @@ export async function GET() {
         userId: user.id,
       },
     });
+    if (findSpace.length == 0) {
+      return NextResponse.json(
+        { message: "Space not found or access denied" },
+        { status: 404 }
+      );
+    }
     return NextResponse.json(findSpace);
   } catch (error) {
     return NextResponse.json(
