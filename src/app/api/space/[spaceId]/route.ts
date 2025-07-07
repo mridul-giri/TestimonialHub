@@ -12,7 +12,7 @@ export async function GET(
       return NextResponse.json({ message: "Unauthorized" }, { status: 401 });
     }
     const { spaceId } = await params;
-    const space = await prisma.space.findUnique({
+    const space = await prisma.space.findFirst({
       where: {
         id: spaceId,
         userId: user.id,
