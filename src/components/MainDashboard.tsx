@@ -3,7 +3,7 @@ import axios from "axios";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 
-export default function DashboardMain() {
+export default function MainDashboard() {
   const [space, setSpace] = useState([]);
   const [totalSpaces, setTotalSpaces] = useState(0);
 
@@ -16,7 +16,6 @@ export default function DashboardMain() {
       console.log(error);
     }
   };
-
   useEffect(() => {
     getAllSpace();
   }, []);
@@ -53,22 +52,20 @@ export default function DashboardMain() {
         {totalSpaces == 0 ? (
           <span>No space yet</span>
         ) : (
-          space.map((s: any, index) => (
-            <div key={index}>
-              <div className="border flex flex-col justify-between gap-5 py-5 px-10">
-                <span className="text-xl font-bold">{s.spaceName}</span>
-                <div className="flex gap-5">
-                  <button
-                    onClick={() => deleteSpace(s.id)}
-                    className="py-2 px-5 bg-[#5d5dff] rounded cursor-pointer"
-                  >
-                    Delete
-                  </button>
-                  <button className="py-2 px-5 bg-[#5d5dff] rounded cursor-pointer">
-                    Edit
-                  </button>
+          space.map((item: any, index) => (
+            <div className="border p-5 cursor-pointer" key={index}>
+              <Link href={`space/${item.id}`}>
+                <div className="pb-4">
+                  <span className="text-xl font-bold">{item.spaceName}</span>
+                  <div className="flex gap-5"></div>
                 </div>
-              </div>
+              </Link>
+              <button
+                onClick={() => deleteSpace(item.id)}
+                className="py-2 px-5 bg-[#5d5dff] rounded cursor-pointer"
+              >
+                Delete
+              </button>
             </div>
           ))
         )}

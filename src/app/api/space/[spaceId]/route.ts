@@ -17,6 +17,9 @@ export async function GET(
         id: spaceId,
         userId: user.id,
       },
+      include: {
+        testimonial: true,
+      },
     });
     if (!space) {
       return NextResponse.json(

@@ -2,7 +2,12 @@ import { getToken } from "next-auth/jwt";
 import { NextRequest, NextResponse } from "next/server";
 
 export const config = {
-  matcher: ["/auth/register", "/dashboard/:path*", "/spaceform"],
+  matcher: [
+    "/auth/register",
+    "/dashboard/:path*",
+    "/spaceform",
+    "/space/:path",
+  ],
 };
 
 export async function middleware(req: NextRequest) {
@@ -13,9 +18,10 @@ export async function middleware(req: NextRequest) {
       return NextResponse.redirect(new URL("/dashboard", req.url));
     }
     if (
-      !token &&
-      (url.pathname.startsWith("/dashboard") ||
-        url.pathname.startsWith("/spaceform"))
+      (!token &&
+        (url.pathname.startsWith("/dashboard") ||
+          url.pathname.startsWith("/spaceform"))) ||
+      url.pathname.startsWith("/space")
     ) {
       return NextResponse.redirect(new URL("/auth/register", req.url));
     }
