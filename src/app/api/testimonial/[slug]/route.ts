@@ -1,6 +1,6 @@
 import { NextResponse, NextRequest } from "next/server";
 import prisma from "@/lib/prisma";
-import { getCurrentUser } from "@/lib/getCurrentUser";
+import { getCurrentUser } from "@/utils/getCurrentUser";
 
 export async function POST(
   req: NextRequest,
@@ -23,7 +23,7 @@ export async function POST(
     return NextResponse.json(testimonial);
   } catch (error: any) {
     return NextResponse.json(
-      { message: "Internal Server Error", error },
+      { message: "Internal Server Error" },
       {
         status: 500,
       }
@@ -59,7 +59,7 @@ export async function GET(
     return NextResponse.json(allTestimonial);
   } catch (error) {
     return NextResponse.json(
-      { message: "Internal Server Error", error },
+      { message: "Internal Server Error" },
       {
         status: 500,
       }
@@ -94,12 +94,16 @@ export async function PATCH(
       },
     });
     return NextResponse.json(updatedTestimonial);
-  } catch (error) {
+  } catch (error: any) {
+    if (error.code === "P2025") {
+      return NextResponse.json(
+        { message: "Testimonial not found or access denied" },
+        { status: 404 }
+      );
+    }
     return NextResponse.json(
-      { message: "Internal Server Error", error },
-      {
-        status: 500,
-      }
+      { message: "Internal Server Error" },
+      { status: 500 }
     );
   }
 }
@@ -124,12 +128,16 @@ export async function DELETE(
       },
     });
     return NextResponse.json(deleteTestimonial);
-  } catch (error) {
+  } catch (error: any) {
+    if (error.code === "P2025") {
+      return NextResponse.json(
+        { message: "Testimonial not found or access denied" },
+        { status: 404 }
+      );
+    }
     return NextResponse.json(
-      { message: "Internal Server Error", error },
-      {
-        status: 500,
-      }
+      { message: "Internal Server Error" },
+      { status: 500 }
     );
   }
 }

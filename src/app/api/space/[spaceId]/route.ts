@@ -1,4 +1,4 @@
-import { getCurrentUser } from "@/lib/getCurrentUser";
+import { getCurrentUser } from "@/utils/getCurrentUser";
 import prisma from "@/lib/prisma";
 import { NextRequest, NextResponse } from "next/server";
 
@@ -29,9 +29,8 @@ export async function GET(
     }
     return NextResponse.json(space);
   } catch (error) {
-    console.log(error);
     return NextResponse.json(
-      { message: "Internal Server Error", error },
+      { message: "Internal Server Error" },
       { status: 500 }
     );
   }
@@ -70,7 +69,7 @@ export async function PATCH(
       );
     }
     return NextResponse.json(
-      { message: "Internal Server Error", error },
+      { message: "Internal Server Error" },
       { status: 500 }
     );
   }
@@ -101,7 +100,7 @@ export async function DELETE(
       );
     }
     return NextResponse.json(
-      { message: "Internal Server Error", error },
+      { message: "Internal Server Error" },
       { status: 500 }
     );
   }
