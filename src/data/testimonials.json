@@ -1,0 +1,62 @@
+[
+  {
+    "name": "Alice Johnson",
+    "review": "This product completely exceeded my expectations! Highly recommend.",
+    "business": "TechCorp",
+    "rating": 5
+  },
+  {
+    "name": "Bob Smith",
+    "review": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Tempore, maiores, itaque sit quibusdam qui, enim architecto sed impedit provident quam deleniti.",
+    "business": "DevSolutions",
+    "rating": 4
+  },
+  {
+    "name": "Carla Reyes",
+    "review": "Fantastic customer support and intuitive interface. Love it!",
+    "business": "Creative Labs",
+    "rating": 5
+  },
+  {
+    "name": "David Lee",
+    "review": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Tempore, maiores, itaque sit quibusdam qui, enim architecto sed impedit provident quam deleniti.",
+    "business": "Marketify",
+    "rating": 3
+  },
+  {
+    "name": "Emma Wilson",
+    "review": "Solid experience overall. Makes my workflow smoother.",
+    "business": "WriteRight",
+    "rating": 4
+  },
+  {
+    "name": "Frank Brown",
+    "review": "Absolutely love it! I use it daily and it never disappoints.",
+    "business": "StartUpHub",
+    "rating": 5
+  },
+  {
+    "name": "Grace Kim",
+    "review": "Not quite what I expected. Needs major improvements.",
+    "business": "InsightWorks",
+    "rating": 2
+  },
+  {
+    "name": "Henry Adams",
+    "review": "Good tool, intuitive and easy to use. Recommended for small teams.",
+    "business": "AlphaTech",
+    "rating": 4
+  },
+  {
+    "name": "Isabella Martinez",
+    "review": "Exceptional quality and value. Our clients love it!",
+    "business": "BrightIdeas",
+    "rating": 5
+  },
+  {
+    "name": "Jack Thompson",
+    "review": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Tempore, maiores, itaque sit quibusdam qui, enim architecto sed impedit provident quam deleniti. Atque, iure odit quae nostrum expedita voluptatum repudiandae illo?",
+    "business": "LogiCorp",
+    "rating": 3
+  }
+]

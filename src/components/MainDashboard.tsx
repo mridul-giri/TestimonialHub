@@ -31,19 +31,20 @@ export default function MainDashboard() {
     }
   };
   return (
-    <div className="py-10 mx-20 flex flex-col justify-center gap-10 ">
-      <h1 className="text-4xl font-bold underline">Overview</h1>
-      <div className="py-5 pl-5 pr-20 rounded w-max bg-[#25282c]">
+    <div className="py-10 mx-20 flex flex-col justify-center gap-10">
+      <h1 className="text-3xl font-bold">Overview</h1>
+      <div className="py-5 pl-5 pr-20 rounded-2xl w-max bg-[#25282c]">
         <span className="text-xl">Total Spaces</span>
         <br />
         <span className="text-2xl font-bold">{totalSpaces}</span>
       </div>
       <hr />
       <div className="flex justify-between items-center">
-        <h2 className="text-4xl font-bold underline">Spaces</h2>
+        <h2 className="text-3xl font-bold">Spaces</h2>
         <Link
           href={"/spaceform"}
-          className="py-2.5 px-6 rounded bg-[#5d5dff] cursor-pointer"
+          className="py-3 px-6 rounded cursor-pointer bg-gradient-to-b 
+            from-white/50 to-gray-300 text-black"
         >
           Create a new space
         </Link>
@@ -53,16 +54,23 @@ export default function MainDashboard() {
           <span>No space yet</span>
         ) : (
           space.map((item: any, index) => (
-            <div className="border p-5 cursor-pointer" key={index}>
+            <div
+              className="rounded-2xl py-5 px-10 cursor-pointer bg-gradient-to-b 
+              from-white/10 to-white/10"
+              key={index}
+            >
               <Link href={`space/${item.id}`}>
                 <div className="pb-4">
-                  <span className="text-xl font-bold">{item.spaceName}</span>
-                  <div className="flex gap-5"></div>
+                  <span className="text-xl font-bold">
+                    Name: {item.spaceName}
+                  </span>
+                  <div className="flex gap-5">Title: {item.title}</div>
                 </div>
               </Link>
               <button
                 onClick={() => deleteSpace(item.id)}
-                className="py-2 px-5 bg-[#5d5dff] rounded cursor-pointer"
+                className="py-2 px-6 rounded cursor-pointer bg-gradient-to-b 
+                from-white/50 to-gray-300 text-black"
               >
                 Delete
               </button>
